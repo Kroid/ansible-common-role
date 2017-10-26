@@ -1,0 +1,15 @@
+---
+
+- name: Set hostname
+  hostname: name={{ host_name }}
+  become: true
+  when: host_name is defined
+
+- name: Add hostname to /etc/hosts
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^127\.0\.0\.1[ \t]+localhost'
+    line: '127.0.0.1 localhost {{ host_name }}'
+    state: present
+  become: true
+  when: host_name is defined

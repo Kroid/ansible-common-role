@@ -1,0 +1,10 @@
+---
+
+# https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f
+# https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f#gistcomment-2096151
+# It will install python2 if missing (but checks first so no expensive repeated apt updates)
+- name: install python 2
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  register: output
+  changed_when: output.stdout != ""
+  become: true

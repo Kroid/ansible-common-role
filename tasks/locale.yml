@@ -1,0 +1,11 @@
+---
+
+- name: Ensure a locale en_US.UTF-8 exists
+  locale_gen:
+    name: "en_US.UTF-8"
+    state: present
+
+- name: Set locale to en_US.UTF-8
+  command: /usr/sbin/update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+  changed_when: False
+  become: true

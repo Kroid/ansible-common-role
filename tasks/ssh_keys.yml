@@ -1,0 +1,17 @@
+---
+
+- name: Set authorized keys from urls
+  authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: '{{ item }}'
+  with_items:
+    - '{{ authorized_key_urls }}'
+
+- name: Set authorized keys from file
+  authorized_key:
+    user: '{{ ansible_user }}'
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - files/public_keys

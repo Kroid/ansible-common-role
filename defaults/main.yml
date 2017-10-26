@@ -1,0 +1,14 @@
+---
+
+# Please keep theese values in quotes
+users_ssh_allow_password_auth: "no"                 # yes/no
+users_ssh_allow_root_login: "without-password"      # yes/no/without-password
+
+packages:
+    - atop
+    - curl
+    - vim
+    - unzip
+
+authorized_key_urls:
+  - 'https://github.com/kroid.keys'

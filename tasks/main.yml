@@ -1,0 +1,9 @@
+---
+
+- include: "python.yml"
+- include: "packages.yml"
+- include: "hostname.yml"
+- include: "locale.yml"
+- include: "ssh.yml"
+- include: "ssh_keys.yml"
+

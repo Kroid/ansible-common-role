@@ -1,0 +1,19 @@
+---
+
+- name: Set SSH password login permission
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: '^\s*PasswordAuthentication'
+    line: "PasswordAuthentication {{ users_ssh_allow_password_auth }}"
+  when: users_ssh_allow_password_auth is defined and users_ssh_allow_password_auth
+  notify: "restart ssh"
+  become: true
+
+- name: Set SSH root password login permission
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: '^\s*PermitRootLogin'
+    line: "PermitRootLogin {{ users_ssh_allow_root_login }}"
+  when: users_ssh_allow_root_login is defined and users_ssh_allow_root_login
+  notify: "restart ssh"
+  become: true
