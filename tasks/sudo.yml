@@ -1,0 +1,10 @@
+---
+
+- name: Allow ansible_user to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^{{ ansible_user }}"
+    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+  become: true

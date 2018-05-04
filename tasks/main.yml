@@ -6,4 +6,4 @@
 - include: "locale.yml"
 - include: "ssh.yml"
 - include: "ssh_keys.yml"
-
+- include: "sudo.yml"
