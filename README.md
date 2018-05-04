@@ -5,6 +5,7 @@ Base role for everything:
 * install common packages
 * add public ssh keys
 * config ssh, hostname, locale
+* sudo without password
 
 
 Tested on *ubuntu 16.04* and *ansible 2.2.1*.
@@ -36,7 +37,7 @@ ansible-galaxy install -r requirements.yml
 - hosts: all
   gather_facts: False
   roles:
-    - common
+    - ansible-common-role
 ```
 
 * example `ansible.cfg`:
